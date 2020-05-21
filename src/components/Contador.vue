@@ -1,0 +1,37 @@
+<template>
+    <div>
+        <h2 class="font-weight-light">
+            Contador : {{contador}}
+        </h2>
+        
+        <button 
+            class="class-btn-lg btn-danger"
+            @click="decrementar">
+            -
+        </button>
+
+        <button 
+            class="class-btn-lg btn-success"
+            @click="incrementar">
+            +
+            </button>
+
+    </div>
+</template>
+<script>
+export default {
+    data(){
+        return {
+            contador: 0
+        }
+    },
+    methods:{
+        decrementar(){
+            this.contador --
+        },
+        incrementar(){
+            this.contador ++
+        }
+    }
+}
+</script>
