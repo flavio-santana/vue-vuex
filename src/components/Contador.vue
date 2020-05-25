@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="font-weight-light">
-            Contador : {{ $store.state.contador }}
+            Contador : {{ contador }}
         </h2>
         
         <button 
@@ -25,6 +25,11 @@ export default {
             contador: 0
         }
     },*/
+    computed:{
+        contador(){
+            return this.$store.state.contador 
+        }
+    },
     methods:{
         decrementar(){
             this.$store.state.contador --
