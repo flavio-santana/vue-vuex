@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="font-weight-light">
-            Contador : {{contador}}
+            Contador : {{ $store.state.contador }}
         </h2>
         
         <button 
@@ -20,17 +20,17 @@
 </template>
 <script>
 export default {
-    data(){
+    /*data(){
         return {
             contador: 0
         }
-    },
+    },*/
     methods:{
         decrementar(){
-            this.contador --
+            this.$store.state.contador --
         },
         incrementar(){
-            this.contador ++
+            this.$store.state.contador ++
         }
     }
 }
