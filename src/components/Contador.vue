@@ -40,13 +40,19 @@ export default {
      * Mapeando propries para serem utilizadas no components 
      */
     //computed: mapState(['contador']),
-    computed: mapState({
-        contador: 'contador',
-        contadorAlias: 'contador',
-        contadorMultiplicado(state){
-            return state.contador * this.contadorLocal
-        }
-    }),
+    computed: {
+
+        // utilizando Spread Operator
+        ...mapState({
+            contador: 'contador',
+                contadorAlias: 'contador',
+                contadorMultiplicado(state){
+                return state.contador * this.contadorLocal
+            }
+        })
+        // Agora aqui, posso adicionar outras computed properties
+
+    },
     methods:{
         decrementar(){
             this.$store.state.contador --
