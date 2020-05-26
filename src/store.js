@@ -25,6 +25,17 @@ export default new Vuex.Store({
 
         tarefasAFazer : state => state.tarefas.filter (t => !t.concluido),
 
-        totalTarefasConcluidas: (State, getters) => getters.tarefasConcluidas.length 
+        totalTarefasConcluidas: (State, getters) => getters.tarefasConcluidas.length,
+
+        /*
+        buscarTerafaPorId:(state, getters) => {
+            return (id) => {
+                return state.tarefas.find( t => t.id === id)
+            }
+        }
+        */
+
+        // Metódo implementado de forma simplificado
+        buscarTerafaPorId:state => id => state.tarefas.find( t => t.id === id)
     }
 })

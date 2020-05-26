@@ -49,6 +49,7 @@
 
 <script>
 
+//Importanto components
 import TarefaSalvar from './TarefaSalvar.vue'
 import TarefasListaIten from './TarefasListaIten.vue'
 
@@ -67,6 +68,7 @@ export default {
     },
     computed:{
         ...mapState(['tarefas']),
+        //Outra forma de acesso ao getters
         tarefasConcluidas(){
             return this.$store.getters.tarefasConcluidas
         }
