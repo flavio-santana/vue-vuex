@@ -12,5 +12,19 @@ export default new Vuex.Store({
             { id: 2, titulo: 'Aprender Vue Router', concluido: true },
             { id: 3, titulo: 'Aprender Vuex', concluido: false }
         ]
+    },
+    /**
+     * Usando getters posso utilizar esse método em qualquer lugar da aplicação 
+     */
+    getters :{
+        /*tarefasConcluidas : (state) => {
+            return state.tarefas.filter(t => t.concluido)
+        }*/
+        // Outra forma de implementar 
+        tarefasConcluidas : state => state.tarefas.filter(t => t.concluido), 
+
+        tarefasAFazer : state => state.tarefas.filter (t => !t.concluido),
+
+        totalTarefasConcluidas: (State, getters) => getters.tarefasConcluidas.length 
     }
 })
