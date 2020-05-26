@@ -15,15 +15,29 @@
             </div>
         </div>
         
-        <ul class="list-group" v-if="tarefas.length > 0">
+        <h4 class="font-weight-light">A fazer ({{ $store.getters.tarefasAFazer.length }})</h4>
+
+        <ul class="list-group" v-if="$store.getters.tarefasAFazer.length > 0">
             <TarefasListaIten
-                v-for="tarefa in tarefas"
+                v-for="tarefa in $store.getters.tarefasAFazer"
                 :key="tarefa.id"
                 :tarefa="tarefa"
                 @editar="selecionarTarefaParaEdicao" />
         </ul>
 
-        <p v-else>Nenhuma tarefa criada.</p>
+        <p v-else>Nenhuma tarefa a fazer</p>
+
+        <h4 class="font-weight-light">Tarefas concluídas ({{ $store.getters.totalTarefasConcluidas }})</h4>
+
+        <ul class="list-group" v-if="tarefasConcluidas.length > 0">
+            <TarefasListaIten
+                v-for="tarefa in tarefasConcluidas"
+                :key="tarefa.id"
+                :tarefa="tarefa"
+                @editar="selecionarTarefaParaEdicao" />
+        </ul>
+
+        <p v-else>Nenhuma tarefa concluída</p>
 
         <TarefaSalvar
             v-if="exibirFormulario"
@@ -52,7 +66,10 @@ export default {
         }
     },
     computed:{
-        ...mapState(['tarefas'])
+        ...mapState(['tarefas']),
+        tarefasConcluidas(){
+            return this.$store.getters.tarefasConcluidas
+        }
     },
     methods: {
         exibirFormularioCriarTarefa(event) {
