@@ -49,11 +49,11 @@
 
 <script>
 
+import { mapState } from 'vuex'
+
 //Importanto components
 import TarefaSalvar from './TarefaSalvar.vue'
 import TarefasListaIten from './TarefasListaIten.vue'
-
-import { mapState } from 'vuex'
 
 export default {
     components: {
