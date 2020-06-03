@@ -5,13 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 
+    /**
+     * Todos os dados que precisam ser 
+     * compartilhados precisam ficar aqui
+     */
     state:{
         contador:0,
-        tarefas: [
-            { id: 1, titulo: 'Aprender Vue', concluido: true },
-            { id: 2, titulo: 'Aprender Vue Router', concluido: true },
-            { id: 3, titulo: 'Aprender Vuex', concluido: false }
-        ]
+        tarefas: []
     },
     /**
      * Usando getters posso utilizar esse método em qualquer lugar da aplicação 
@@ -37,5 +37,14 @@ export default new Vuex.Store({
 
         // Metódo implementado de forma simplificado
         buscarTerafaPorId:state => id => state.tarefas.find( t => t.id === id)
+    },
+    mutations:{
+        listarTarefas:state =>{
+            state.tarefas = [
+                { id: 1, titulo: 'Aprender Vue', concluido: true },
+                { id: 2, titulo: 'Aprender Vue Router', concluido: true },
+                { id: 3, titulo: 'Aprender Vuex', concluido: false }
+            ]
+        }
     }
 })

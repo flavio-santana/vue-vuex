@@ -73,6 +73,12 @@ export default {
             return this.$store.getters.tarefasConcluidas
         }
     },
+    created(){
+        /**
+         * Alterando o status das mutatios
+         */
+        this.$store.commit('listarTarefas')
+    },
     methods: {
         exibirFormularioCriarTarefa(event) {
             if (this.tarefaSelecionada) {
