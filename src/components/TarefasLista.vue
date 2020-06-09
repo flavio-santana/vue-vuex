@@ -49,7 +49,7 @@
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 //Importanto components
 import TarefaSalvar from './TarefaSalvar.vue'
@@ -77,15 +77,35 @@ export default {
         /**
          * Alterando o status das mutatios
          */
-        this.$store.commit('listarTarefas',{
+        // this.$store.commit({
+        //     type: 'listarTarefas',
+        //     tarefas : [
+        //         { id: 1, titulo: 'Aprender Vue', concluido: true },
+        //         { id: 2, titulo: 'Aprender Vue Router', concluido: true },
+        //         { id: 3, titulo: 'Aprender Vuex', concluido: false }
+        //     ],
+        //     tarefas2 : [
+        //         { id: 1, titulo: 'Vue', concluido: true },
+        //         { id: 2, titulo: 'Vue Router', concluido: true },
+        //         { id: 3, titulo: 'Vuex', concluido: false }
+        //     ]
+        // }),
+        // esta sendo mapeada em ...mapMutations(['listarTarefas']),
+        this.listarTarefas({
             tarefas : [
                 { id: 1, titulo: 'Aprender Vue', concluido: true },
                 { id: 2, titulo: 'Aprender Vue Router', concluido: true },
                 { id: 3, titulo: 'Aprender Vuex', concluido: false }
+            ],
+            tarefas2 : [
+                { id: 1, titulo: 'Vue', concluido: true },
+                { id: 2, titulo: 'Vue Router', concluido: true },
+                { id: 3, titulo: 'Vuex', concluido: false }
             ]
         })
     },
     methods: {
+        ...mapMutations(['listarTarefas']),
         exibirFormularioCriarTarefa(event) {
             if (this.tarefaSelecionada) {
                 this.tarefaSelecionada = undefined

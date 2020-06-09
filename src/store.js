@@ -46,8 +46,8 @@ export default new Vuex.Store({
         /**
          * Outra forma de acessar os valores passados por payload
          */
-        listarTarefas:(state, {tarefas}) =>{
-            state.tarefas = tarefas
+        listarTarefas:(state, {tarefas, tarefas2}) =>{
+            state.tarefas = tarefas2
         }
     }
 })
